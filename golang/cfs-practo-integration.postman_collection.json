@@ -1,0 +1,466 @@
+
+{
+	"info": {
+		"_postman_id": "aaee39cd-e936-4645-bffb-0287f85e042c",
+		"name": "CFS PRACTO INTEGRATION CONFIGURATION",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38207364"
+	},
+	"item": [
+		{
+			"name": "Patient Registration Copy",
+			"item": [
+				{
+					"name": "MSB_Register Seema",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "clientCode",
+								"value": "CFS_PRACTO_INTEGRATION_ID",
+								"type": "text"
+							},
+							{
+								"key": "integrationKey",
+								"value": "PATIENT_REGISTRATION",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJDRlNfUFJBQ1RPX0lOVEVHUkFUSU9OX0lEIiwic3ViIjoiUEFUSUVOVF9SRUdJU1RSQVRJT04iLCJuYmYiOjE3NDcxMTEwMzgsIm1lc3NhZ2VUeXBlIjoicmVxdWVzdCIsImlzcyI6IkthcmVYcGVydCBISU1TIiwiZXhwIjoxNzQ3MTE0NjM4LCJpYXQiOjE3NDcxMTEwMzgsImp0aSI6IlBSRU0ifQ.dFXbxgMBFfwJtLUGTMe2_SNJYPJCeJqV3FurlpKXOe0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"requestJson\": {\r\n        \"facilityId\": \"PREM\",\r\n        \"name_\": {\r\n            \"prefix\": \"\",\r\n            \"text\": \"Today May 13 patient\",\r\n            \"given\": \"\",\r\n            \"family\": \"\"\r\n        },\r\n        \"gender_id\": \"\",\r\n        \"is_prn\":true,\r\n        \"patient_gender\": \"\",\r\n        \"maritalStatus_id\": \"UNK\",\r\n        \"maritalStatus\": \"unknown\",\r\n        \"payer_id\": \"\",\r\n        \"payer_name\": \"\",\r\n        \"payer_type\": \"\",\r\n        \"telecom\": \"8423837720\",\r\n        \"birthDate\": \"\"\r\n        \r\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.kxstage.com/external/api/v1/integrate",
+							"protocol": "https",
+							"host": [
+								"api",
+								"kxstage",
+								"com"
+							],
+							"path": [
+								"external",
+								"api",
+								"v1",
+								"integrate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-api-key",
+								"value": "NgE4FHpknuJJ4rBpJ3IOCw==",
+								"type": "text"
+							},
+							{
+								"key": "integrationKey",
+								"value": "PATIENT_REGISTRATION",
+								"type": "text"
+							},
+							{
+								"key": "clientCode",
+								"value": "CFS_PRACTO_INTEGRATION_ID",
+								"type": "text"
+							},
+							{
+								"key": "messageType",
+								"value": "request",
+								"type": "text"
+							},
+							{
+								"key": "facilityId",
+								"value": "PREM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.kxstage.com/external/api/v1/token",
+							"protocol": "https",
+							"host": [
+								"api",
+								"kxstage",
+								"com"
+							],
+							"path": [
+								"external",
+								"api",
+								"v1",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Appointment booking for prn patient",
+			"item": [
+				{
+					"name": "Appointment Booking",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "clientCode",
+								"value": "CFS_PRACTO_INTEGRATION_ID",
+								"type": "text"
+							},
+							{
+								"key": "integrationKey",
+								"value": "APPOINTMENT_NEW",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJDRlNfUFJBQ1RPX0lOVEVHUkFUSU9OX0lEIiwic3ViIjoiQVBQT0lOVE1FTlRfTkVXIiwibmJmIjoxNzQ3MTQyOTA4LCJtZXNzYWdlVHlwZSI6InJlcXVlc3QiLCJpc3MiOiJLYXJlWHBlcnQgSElNUyIsImV4cCI6MTc0NzE0NjUwOCwiaWF0IjoxNzQ3MTQyOTA4LCJqdGkiOiJQUkVNIn0.Rd5ayNXjM8ykWT-VkQLd1xlT5G42QgAnDu9rvvXZDyM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"requestJson\": {\r\n        \"facilityId\": \"PREM\",\r\n        \"id\": \"349d99b0-bd03-11ef-9615-6a180fbceb95-45\",\r\n        \"g_migration_status\": false,\r\n        \"account_id\": \"876ae050-2f11-11eb-9f2a-3aa18407548a-80\",\r\n        \"remarks\": \"Appointment Booking\",\r\n        \"ext_payer_code\": \"cash\",\r\n        \"external_appointmentId\": \"123667\",\r\n        \"slotStartTime\": 1747247040000,\r\n        \"uhId\": \"222222319\",\r\n        \"ext_billing_category_code\": \"opcode\",\r\n        \"treatingDoctorId\": \"941f0000-8e20-11ec-a9cf-4a259495c8ae-77\",\r\n        \"serviceItemCode\": \"opd\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.kxstage.com/external/api/v1/integrate",
+							"protocol": "https",
+							"host": [
+								"api",
+								"kxstage",
+								"com"
+							],
+							"path": [
+								"external",
+								"api",
+								"v1",
+								"integrate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-api-key",
+								"value": "NgE4FHpknuJJ4rBpJ3IOCw==",
+								"type": "text"
+							},
+							{
+								"key": "integrationKey",
+								"value": "APPOINTMENT_NEW",
+								"type": "text"
+							},
+							{
+								"key": "clientCode",
+								"value": "CFS_PRACTO_INTEGRATION_ID",
+								"type": "text"
+							},
+							{
+								"key": "messageType",
+								"value": "request",
+								"type": "text"
+							},
+							{
+								"key": "facilityId",
+								"value": "PREM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.kxstage.com/external/api/v1/token",
+							"protocol": "https",
+							"host": [
+								"api",
+								"kxstage",
+								"com"
+							],
+							"path": [
+								"external",
+								"api",
+								"v1",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Remark update Copy",
+			"item": [
+				{
+					"name": "update remark",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "clientCode",
+								"value": "CFS_PRACTO_INTEGRATION_ID",
+								"type": "text"
+							},
+							{
+								"key": "integrationKey",
+								"value": "UPDATE_APPOINTMENT_REMARKS",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJDRlNfUFJBQ1RPX0lOVEVHUkFUSU9OX0lEIiwic3ViIjoiVVBEQVRFX0FQUE9JTlRNRU5UX1JFTUFSS1MiLCJuYmYiOjE3NDcxMTIzMDcsIm1lc3NhZ2VUeXBlIjoicmVxdWVzdCIsImlzcyI6IkthcmVYcGVydCBISU1TIiwiZXhwIjoxNzQ3MTE1OTA3LCJpYXQiOjE3NDcxMTIzMDcsImp0aSI6IlBSRU0ifQ.3hwfmY6A5nWrf5MaRFnEvGE65TIOT7jeEf5RHqXf_AA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"requestJson\": {\r\n        \"g_migration_status\": false,\r\n        \"facility_id\": \"182fd680-3bc0-11eb-8eb0-c24cf0b32931-99\",\r\n        \"account_id\": \"876ae050-2f11-11eb-9f2a-3aa18407548a-80\",\r\n        \"remarks\": \"Remarks updated in a first time without changing any\",\r\n        \"external_appointmentId\":\"123667\"\r\n\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.kxstage.com/external/api/v1/integrate",
+							"protocol": "https",
+							"host": [
+								"api",
+								"kxstage",
+								"com"
+							],
+							"path": [
+								"external",
+								"api",
+								"v1",
+								"integrate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-api-key",
+								"value": "ewtretr3453463435",
+								"type": "text"
+							},
+							{
+								"key": "integrationKey",
+								"value": "UPDATE_APPOINTMENT_REMARKS",
+								"type": "text"
+							},
+							{
+								"key": "clientCode",
+								"value": "CFS_PRACTO_INTEGRATION_ID",
+								"type": "text"
+							},
+							{
+								"key": "messageType",
+								"value": "request",
+								"type": "text"
+							},
+							{
+								"key": "facilityId",
+								"value": "PREM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.kxstage.com/external/api/v1/token",
+							"protocol": "https",
+							"host": [
+								"api",
+								"kxstage",
+								"com"
+							],
+							"path": [
+								"external",
+								"api",
+								"v1",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Practioner slot info Copy",
+			"item": [
+				{
+					"name": "slot info",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientCode",
+								"value": "CFS_PRACTO_INTEGRATION_ID",
+								"type": "text"
+							},
+							{
+								"key": "integrationKey",
+								"value": "GET_SLOT_AVAILABILITY",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJDRlNfUFJBQ1RPX0lOVEVHUkFUSU9OX0lEIiwic3ViIjoiVVBEQVRFX0FQUE9JTlRNRU5UX1JFTUFSS1MiLCJuYmYiOjE3NDcwNTMwNDEsIm1lc3NhZ2VUeXBlIjoicmVxdWVzdCIsImlzcyI6IkthcmVYcGVydCBISU1TIiwiZXhwIjoxNzQ3MDU2NjQxLCJpYXQiOjE3NDcwNTMwNDEsImp0aSI6IlBSRU0ifQ.fu2HqN0q1AK1O_OJL0U-smUhMoRkqQ7rWAFkMO9EGaY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"requestJson\": {\r\n        \"doctor_id\": \"123456\",\r\n        \"slotDate\": 1739298600000,\r\n        \"consultation_type_code\": \"opd\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.kxstage.com/external/api/v1/integrate",
+							"protocol": "https",
+							"host": [
+								"api",
+								"kxstage",
+								"com"
+							],
+							"path": [
+								"external",
+								"api",
+								"v1",
+								"integrate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-api-key",
+								"value": "hfhsdkjfhjksdhshk4534543",
+								"type": "text"
+							},
+							{
+								"key": "integrationKey",
+								"value": "GET_SLOT_AVAILABILITY",
+								"type": "text"
+							},
+							{
+								"key": "clientCode",
+								"value": "CFS_PRACTO_INTEGRATION_ID",
+								"type": "text"
+							},
+							{
+								"key": "messageType",
+								"value": "request",
+								"type": "text"
+							},
+							{
+								"key": "facilityId",
+								"value": "PREM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.kxstage.com/external/api/v1/token",
+							"protocol": "https",
+							"host": [
+								"api",
+								"kxstage",
+								"com"
+							],
+							"path": [
+								"external",
+								"api",
+								"v1",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
